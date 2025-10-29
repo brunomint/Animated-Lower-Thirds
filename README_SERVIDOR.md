@@ -1,87 +1,87 @@
-# 🎬 Animated Lower Thirds - Servidor Flask
+# 🎬 Animated Lower Thirds - Flask Server
 
-Este projeto é um fork do [Animated Lower Thirds](https://github.com/noeal-dac/Animated-Lower-Thirds) original criado por **noeal-dac**, com adição de servidor Flask para controle remoto via rede de qualquer dispositivo.
+This project is a fork of the original [Animated Lower Thirds](https://github.com/noeal-dac/Animated-Lower-Thirds) created by **noeal-dac**, with the addition of a Flask server for remote control via network from any device.
 
-> **📋 Veja também**: [README_FORK.md](README_FORK.md) para comparação completa com o projeto original.
+> **📋 See also**: [README_FORK_EN.md](README_FORK_EN.md) for complete comparison with the original project.
 
-## 🚀 Início Rápido
+## 🚀 Quick Start
 
-### Opção 1: Inicialização Automática (Recomendada)
+### Option 1: Automatic Initialization (Recommended)
 ```bash
 python start_server.py
 ```
 
-### Opção 2: Inicialização Manual
+### Option 2: Manual Initialization
 ```bash
-# Instalar dependências
+# Install dependencies
 pip install -r requirements.txt
 
-# Iniciar servidor
+# Start server
 python app.py
 ```
 
-## 📱 Como Usar
+## 📱 How to Use
 
-### 1. **Acesso Local**
-- Abra seu navegador em: `http://localhost:5000`
-- Você verá uma página com QR Codes e links diretos
+### 1. **Local Access**
+- Open your browser at: `http://localhost:5000`
+- You'll see a page with QR Codes and direct links
 
-### 2. **Controle Remoto**
-- **Painel de Controle**: `http://SEU_IP:5000/control`
-- **Browser Source (OBS)**: `http://SEU_IP:5000/source`
-- **QR Code**: Escaneie com o celular para acesso rápido
+### 2. **Remote Control**
+- **Control Panel**: `http://YOUR_IP:5000/control`
+- **Browser Source (OBS)**: `http://YOUR_IP:5000/source`
+- **QR Code**: Scan with your phone for quick access
 
-### 3. **Configuração no OBS**
-1. Adicione uma fonte **"Browser"**
-2. Use a URL: `http://SEU_IP:5000/source`
-3. Defina resolução: 1920x1080
+### 3. **OBS Configuration**
+1. Add a **"Browser"** source
+2. Use URL: `http://YOUR_IP:5000/source`
+3. Set resolution: 1920x1080
 4. Configure FPS: 30
 
-## 🌐 Funcionalidades
+## 🌐 Features
 
-### ✅ **Controle via Rede**
-- Controle de qualquer dispositivo na mesma WiFi
-- Sincronização em tempo real via WebSocket
-- Interface responsiva para mobile e desktop
+### ✅ **Network Control**
+- Control from any device on the same WiFi
+- Real-time synchronization via WebSocket
+- Responsive interface for mobile and desktop
 
-### ✅ **Compatibilidade Total**
-- Mantém todos os arquivos originais
-- Funciona com configurações existentes
-- Suporte a hotkeys e shortcuts
+### ✅ **Full Compatibility**
+- Maintains all original files
+- Works with existing configurations
+- Support for hotkeys and shortcuts
 
-### ✅ **Recursos Avançados**
-- QR Code para acesso rápido
-- Detecção automática de IP local
-- Interface moderna e intuitiva
-- Comunicação bidirecional em tempo real
+### ✅ **Advanced Features**
+- QR Code for quick access
+- Automatic local IP detection
+- Modern and intuitive interface
+- Real-time bidirectional communication
 
-## 🔧 Configuração Avançada
+## 🔧 Advanced Configuration
 
-### Alterar Porta
-Edite o arquivo `app.py` na linha:
+### Change Port
+Edit the `app.py` file at line:
 ```python
-port = 5000  # Altere para a porta desejada
+port = 5000  # Change to desired port
 ```
 
-### Configurar IP Específico
-Por padrão o servidor aceita conexões de qualquer IP da rede (`0.0.0.0`). Para restringir, edite:
+### Configure Specific IP
+By default the server accepts connections from any network IP (`0.0.0.0`). To restrict, edit:
 ```python
-host = '192.168.1.100'  # IP específico
+host = '192.168.1.100'  # Specific IP
 ```
 
-## 📋 Requisitos
+## 📋 Requirements
 
 - **Python 3.7+**
-- **Dependências** (instaladas automaticamente):
+- **Dependencies** (installed automatically):
   - Flask 2.3.3
   - Flask-SocketIO 5.3.6
   - qrcode[pil] 7.4.2
   - Pillow 10.0.1
   - eventlet 0.33.3
 
-## 🌍 Acesso via Rede
+## 🌍 Network Access
 
-### Descobrir seu IP:
+### Find your IP:
 ```bash
 # Linux/Mac
 ip addr show | grep inet
@@ -91,62 +91,62 @@ ifconfig | grep inet
 ipconfig
 ```
 
-### Exemplo de URLs:
-- **IP Local**: `192.168.1.100`
-- **Controle**: `http://192.168.1.100:5000/control`
+### Example URLs:
+- **Local IP**: `192.168.1.100`
+- **Control**: `http://192.168.1.100:5000/control`
 - **Source**: `http://192.168.1.100:5000/source`
 
-## 🔍 Solução de Problemas
+## 🔍 Troubleshooting
 
-### Servidor não inicia
+### Server won't start
 ```bash
-# Verificar se a porta está livre
+# Check if port is free
 netstat -an | grep :5000
 
-# Matar processo na porta
+# Kill process on port
 sudo kill -9 $(lsof -t -i:5000)
 ```
 
-### Não consegue acessar via rede
-1. Verifique se está na mesma rede WiFi
-2. Desative firewall temporariamente
-3. Teste com IP local primeiro
-4. Verifique se a porta não está bloqueada
+### Can't access via network
+1. Check if you're on the same WiFi network
+2. Temporarily disable firewall
+3. Test with local IP first
+4. Check if port is not blocked
 
-### Lower Thirds não aparecem
-1. Verifique console do navegador (F12)
-2. Confirme conexão WebSocket
-3. Teste painel de controle local primeiro
-4. Verifique se OBS está usando URL correta
+### Lower Thirds don't appear
+1. Check browser console (F12)
+2. Confirm WebSocket connection
+3. Test local control panel first
+4. Check if OBS is using correct URL
 
-## 📱 Uso Mobile
+## 📱 Mobile Usage
 
-1. **Escaneie o QR Code** da página inicial
-2. **Ou acesse diretamente**: `http://SEU_IP:5000/control`
-3. **Interface otimizada** para touch
-4. **Controle completo** dos Lower Thirds
+1. **Scan the QR Code** from the home page
+2. **Or access directly**: `http://YOUR_IP:5000/control`
+3. **Touch-optimized interface**
+4. **Complete control** of Lower Thirds
 
-## 🎯 Vantagens sobre Versão Original
+## 🎯 Advantages over Original Version
 
-- ✅ **Controle remoto** de qualquer dispositivo
-- ✅ **Não precisa** estar no mesmo computador
-- ✅ **Interface web** moderna e responsiva
-- ✅ **QR Code** para acesso rápido
-- ✅ **WebSocket** para comunicação instantânea
-- ✅ **Compatibilidade total** com arquivos originais
+- ✅ **Remote control** from any device
+- ✅ **No need** to be on the same computer
+- ✅ **Modern and responsive** web interface
+- ✅ **QR Code** for quick access
+- ✅ **WebSocket** for instant communication
+- ✅ **Full compatibility** with original files
 
-## 🤝 Suporte
+## 🤝 Support
 
-Para dúvidas ou problemas:
-1. Verifique os logs no terminal
-2. Teste acesso local primeiro
-3. Confirme configuração de rede
-4. Verifique dependências instaladas
+For questions or problems:
+1. Check logs in terminal
+2. Test local access first
+3. Confirm network configuration
+4. Check installed dependencies
 
-## 📄 Licença
+## 📄 License
 
-Mantém a licença MIT original do projeto Animated Lower Thirds.
+Maintains the original MIT license from the Animated Lower Thirds project.
 
 ---
 
-**🎬 Desenvolvido para facilitar o controle remoto de Lower Thirds via rede!**
+**🎬 Developed to facilitate remote control of Lower Thirds via network!**
